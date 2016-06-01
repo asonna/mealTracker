@@ -12,7 +12,7 @@ import { Keg } from './keg.model';
 
     <div class="progress">
       <div id="{{ keg.name }}" class="progress-bar" role="progressbar" aria-valuenow="0"
-      aria-valuemin="0" aria-valuemax="0">
+      aria-valuemin="0" aria-valuemax="0" style="Width: 100%">
         <span class="sr-only">70% Complete</span>
       </div>
     </div>
@@ -24,10 +24,18 @@ export class KegComponent {
   public keg: Keg;
 
   servePint(){
-    var test = "#" + this.keg.name;
-    var pintsLeft = (((this.keg.pints/124) * 100) + 50);
     this.keg.pints -= 1;
-    $(test).css('width', pintsLeft);
+    var test = "#" + this.keg.name;
+    var pintsLeft = ((this.keg.pints/124) * 100);
+
+    if(this.keg.pints === 123) {
+      $(test).css('width', '100%');
+      console.log("fail");
+    } else {
+      $(test).css('width', pintsLeft + "%");
+      console.log("success");
+    }
+
     console.log(test);
     console.log(pintsLeft);
   }
