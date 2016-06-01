@@ -12,13 +12,15 @@ import { NewKegComponent } from './new-keg.component';
   directives: [KegComponent, EditKegDetailsComponent, NewKegComponent],
   template: `
   <keg-display *ngFor="#currentKeg of kegList"
-    (click)="kegClicked(currentkeg)"
+    (click)="kegClicked(currentKeg)"
     [class.selected]="currentKeg === selectedKeg"
     [keg]="currentKeg">
+
   </keg-display>
+
   <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
   </edit-keg-details>
-  <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>
+  <new-keg (onSubmitNewKeg)="createKeg($event)" ></new-keg>
   `
 })
 export class KegListComponent {
@@ -32,6 +34,8 @@ export class KegListComponent {
   kegClicked(clickedKeg: Keg): void {
     this.selectedKeg = clickedKeg;
     this.onKegSelect.emit(clickedKeg);
+
+    console.log('child', this.selectedKeg);
   }
   createKeg(newKeg): void {
     newKeg.id = this.kegList.length;

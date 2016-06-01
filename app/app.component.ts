@@ -17,6 +17,7 @@ import { Keg } from './keg.model';
 })
 export class AppComponent {
   public kegs: Keg[];
+  public onKegSelect: EventEmitter<Keg>;
   constructor(){
     this.kegs = [
       new Keg("Stella", "Imports", "$55", "12%", 0),
