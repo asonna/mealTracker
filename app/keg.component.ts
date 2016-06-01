@@ -7,17 +7,17 @@ import { Keg } from './keg.model';
     inputs: ['keg'],
   template: `
   <div>
+  <div id="kegContainer" class="container">
     <input type="button" (click)="servePint()"/>
     <label>{{ keg.name }}, <br> Brand: {{ keg.brand }}, <br> Price: {{ keg.price }}, <br> Alcohol Content: {{keg.alcoholContent}}, <br> Pints Left:  {{ keg.pints }}</label>
-
-    <div class="progress">
-      <div id="{{ keg.name }}" class="progress-bar" role="progressbar" aria-valuenow="0"
-      aria-valuemin="0" aria-valuemax="0" style="Width: 100%">
-        <span class="sr-only">70% Complete</span>
+    <div id="progressContainer" class="container">
+      <div class="progress vertical">
+        <div id="{{ keg.name }}" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+        </div>
       </div>
     </div>
   </div>
-  <div id="test">Test</div>
+</div>
   `
 })
 export class KegComponent {

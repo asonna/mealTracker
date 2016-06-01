@@ -43,3 +43,14 @@ keg-display {
   margin-top: 100px;
   display: inline-block;
 }
+.vertical {
+  display: inline-block;
+  width: 150px;
+  height: 75px;
+  /*-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+}
+
+#progressContainer {
+  text-align: center;
+}
