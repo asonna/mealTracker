@@ -2,12 +2,15 @@
   background-color: #D3D3D3;
 
 }
-
+.jumbotron{
+  background-color: black;
+}
 h1 {
-  color: darkblue;
-  font-family: serif;
-  font-size: 90px;
+  color: white;
+  font-family: helvetica;
+  font-size: 200px;
   text-align: center;
+
 }
 h3 {
   font-family: 'Montserrat', sans-serif;
@@ -39,7 +42,7 @@ input {
   margin-bottom: 20px;
 }
 
-keg-display {
+food-display {
   margin-top: 100px;
   display: inline-block;
 }

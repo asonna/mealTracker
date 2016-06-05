@@ -1,34 +1,36 @@
 import { Component, EventEmitter } from 'angular2/core';
-import { KegListComponent } from './keg-list.component';
-import { Keg } from './keg.model';
+import { FoodListComponent } from './food-list.component';
+import { Food } from './food.model';
 
 @Component({
   selector: 'my-app',
-  directives: [KegListComponent],
+  directives: [FoodListComponent],
   template: `
     <div class="container">
-      <h1>Keg Tap List</h1>
-      <keg-list
-        [kegList]="kegs"
-        (onKegSelect)="kegWasSelected($event)">
-      </keg-list>
+      <div class="jumbotron">
+        <h1>Food Tally List</h1>
+      </div>
+        <food-list
+          [foodList]="foods"
+          (onFoodSelect)="foodWasSelected($event)">
+        </food-list>
     </div>
   `
 })
 export class AppComponent {
-  public kegs: Keg[];
-  public onKegSelect: EventEmitter<Keg>;
+  public foods: Food[];
+  public onFoodSelect: EventEmitter<Food>;
   constructor(){
-    this.kegs = [
-      new Keg("Stella", "Imports", "$55", "12%", 0),
-      new Keg("Rtella", "Imports", "$55", "12%", 1),
-      new Keg("Mtella", "Imports", "$55", "12%", 2),
-      new Keg("tella", "Imports", "$55", "12%", 3)
+    this.foods = [
+      new Food("Apple", "Fresh Organic Fruit", "230", 0),
+      new Food("Broccoli", "Fresh Veggies", "300", 1),
+      new Food("Baked Beans", "Fresh Baked", "250", 2),
+
 
     ];
-    console.log(this.kegs);
+    console.log(this.foods);
   }
-  kegWasSelected(clickedKeg: Keg): void {
-    console.log('parent', clickedKeg);
+  foodWasSelected(clickedFood: Food): void {
+    console.log('parent', clickedFood);
   }
 }
