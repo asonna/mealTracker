@@ -22,13 +22,13 @@ export class AppComponent {
   public onFoodSelect: EventEmitter<Food>;
   constructor(){
     this.foods = [
-      new Food("Apple", "Fresh Organic Fruit", "230", 0),
-      new Food("Broccoli", "Fresh Veggies", "300", 1),
-      new Food("Baked Beans", "Fresh Baked", "250", 2),
+      new Food("Apple", "Fresh Organic Fruit", 230, 0),
+      new Food("Broccoli", "Fresh Veggies", 300, 1),
+      new Food("Baked Beans", "Fresh Baked", 250, 2),
 
 
     ];
-    console.log(this.foods);
+    // console.log(this.foods);
   }
   foodWasSelected(clickedFood: Food): void {
     console.log('parent', clickedFood);
