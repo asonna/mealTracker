@@ -18,7 +18,7 @@ import {CaloriePipe} from './calorie.pipe';
       <option value="highCalorie">Show all high calorie foods</option>
       <option value="all" selected="selected">Show all</option>
     </select>
-  <food-display *ngFor="#currentFood of foodList | calorie:filterCalorie"
+  <food-display *ngFor="#currentFood of foodList | calorie:userSelect"
     (click)="foodClicked(currentFood)"
     [class.selected]="currentFood === selectedFood"
     [food]="currentFood">
@@ -32,7 +32,7 @@ export class FoodListComponent {
   public foodList: Food[];
   public onFoodSelect: EventEmitter<Food>;
   public selectedFood: Food;
-  public filterCalorie: string ="";
+  public userSelect: string ="all";
   constructor() {
     this.onFoodSelect = new EventEmitter();
   }
@@ -44,8 +44,8 @@ export class FoodListComponent {
     newFood.id = this.foodList.length;
     this.foodList.push(newFood);
   }
-  onChangeCalorie(filterOption) {
-    this.filterCalorie = filterOption;
+  onChangeCalorie(selected) {
+    this.userSelect = selected;
   }
   getCalories(): number {
   var totalCalories: number = 0;

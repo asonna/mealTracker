@@ -1,9 +1,0 @@
-
-
-<food-display *ngFor="#currentFood of foodList | calorie:calorieCount"
-  (click)="foodClicked(currentFood)"
-  [class.highCalorie]="currentFood.calories >= 500"
-  [class.lowCalorie]="currentFood.calories < 500"
-  [class.selected]="currentFood === selectedFood"
-  [food]="currentFood">
-</food-display>

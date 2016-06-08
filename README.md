@@ -1,1 +1,7 @@
-_If you are reading this, stop!_
+AUTHOR:
+
+PROJECT:
+
+USE:
+$ npm install
+$ bower install
